@@ -1,0 +1,53 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="size_5_dp">5dp</dimen>
+    <dimen name="size_10_dp">10dp</dimen>
+    <dimen name="size_12_dp">12dp</dimen>
+    <dimen name="size_14_dp">14dp</dimen>
+    <dimen name="size_16_dp">16dp</dimen>
+    <dimen name="size_18_dp">18dp</dimen>
+    <dimen name="size_20_dp">20dp</dimen>
+    <dimen name="size_30_dp">30dp</dimen>
+    <dimen name="size_50_dp">50dp</dimen>
+
+    <dimen name="size_100_dp">100dp</dimen>
+    <dimen name="size_130_dp">130dp</dimen>
+
+    <dimen name="margin_5_dp">5dp</dimen>
+    <dimen name="margin_2_dp">2dp</dimen>
+    <dimen name="margin_10_dp">10dp</dimen>
+    <dimen name="margin_12_dp">12dp</dimen>
+    <dimen name="margin_14_dp">14dp</dimen>
+    <dimen name="margin_16_dp">16dp</dimen>
+    <dimen name="margin_20_dp">20dp</dimen>
+    <dimen name="margin_24_dp">24dp</dimen>
+    <dimen name="margin_30_dp">30dp</dimen>
+    <dimen name="margin_40_dp">40dp</dimen>
+    <dimen name="margin_50_dp">50dp</dimen>
+
+    <dimen name="text_8_sp">8sp</dimen>
+    <dimen name="text_10_sp">10sp</dimen>
+    <dimen name="text_12_sp">12sp</dimen>
+    <dimen name="text_14_sp">14sp</dimen>
+    <dimen name="text_16_sp">16sp</dimen>
+    <dimen name="text_18_sp">18sp</dimen>
+    <dimen name="text_20_sp">20sp</dimen>
+    <dimen name="text_24_sp">24sp</dimen>
+    <dimen name="text_30_sp">30sp</dimen>
+
+
+    <dimen name="default_elevation">2dp</dimen>
+    <dimen name="default_card_radius">2dp</dimen>
+    <dimen name="default_shadow">2dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_padding_bottom">16dp</dimen>
+    <dimen name="tab_label">14sp</dimen>
+    <dimen name="custom_tab_layout_height">72dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+</resources>

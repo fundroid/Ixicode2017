@@ -19,13 +19,8 @@ import java.util.Set;
 
 import fundroid.ixicode.base.AppController;
 
-
-/**
- * Created by sagarverma on 25/09/15.
- */
 public class VolleyHelper {
-    static String HASH = "aq34rfvg56yhnj8iknbgt67uyhbvcde45yhbvcder5ty";
-    static String SALT = "s4g4rv07";
+
     private static int TIMEOUT = 30000;
 
     public static void postRequestVolley(final Context ctx, String url, final HashMap<String, String> hm, final int request_code) {
@@ -75,14 +70,6 @@ public class VolleyHelper {
 
         AppController.getInstance().addToRequestQueue(sr);
     }
-
-    /*
-    public static void postImageRequest(final Context ctx, String url, String filepath, String regid, final int request_code) {
-        final VolleyInterface vi = (VolleyInterface) ctx;
-        UploadImageTask uit = new UploadImageTask(vi, url, regid, filepath, request_code);
-        uit.execute();
-    }
-*/
 
     public static void getRequestVolley(final VolleyInterface vi, String url, final int request_code) {
         Slog.d("*******************************************************\n Url: " + url);
