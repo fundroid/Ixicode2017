@@ -1,66 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:expanded="false"
+        app:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appBarLayout"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingtoolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleGravity="top|start"
+            app:expandedTitleMarginStart="16dp"
+            app:expandedTitleMarginTop="?android:actionBarSize"
+            app:expandedTitleTextAppearance="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:titleEnabled="true">
 
-        </android.support.design.widget.AppBarLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#f3c23d"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/pager_banner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <fundroid.ixicode.views.pageindicator.CirclePageIndicator
-                android:id="@+id/viewpager_indicator"
+            <android.support.v7.widget.ContentFrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="2dp"
-                android:foregroundGravity="right" />
+                android:fitsSystemWindows="true">
 
-        </RelativeLayout>
-
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_recom"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:animationCache="false"
-                    android:drawingCacheQuality="low" />
-            </LinearLayout>
+                    android:layout_height="wrap_content">
 
-        </android.support.v4.widget.NestedScrollView>
+                </RelativeLayout>
+            </android.support.v7.widget.ContentFrameLayout>
 
-    </LinearLayout>
-</RelativeLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:fitsSystemWindows="false"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+        <include layout="@layout/content_home_booking" />
+</android.support.design.widget.CoordinatorLayout>

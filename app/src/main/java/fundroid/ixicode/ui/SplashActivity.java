@@ -47,15 +47,13 @@ public class SplashActivity extends BaseActivity {
 
             for (int i = 0; i < recom_places.getFlight().size(); i++) {
                 Place place = recom_places.getFlight().get(i);
-                getLocationFromAddress(i, this, place.getName()+","+place.getCityName()+","
-                        + place.getStateName() +","+ place.getCountryName());
+                getLocationFromAddress(i, this, place.getName()+","+place.getCityName()+"," + place.getStateName() +","+ place.getCountryName());
             }
             gotoHome(recom_places);
         }else{
             getRecommendations();
         }
     }
-
 
     public LatLng getLocationFromAddress(int position, Context context, String strAddress) {
         Geocoder coder= new Geocoder(context);

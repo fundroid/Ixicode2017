@@ -32,8 +32,11 @@ import java.util.HashMap;
 
 import fundroid.ixicode.BuildConfig;
 import fundroid.ixicode.R;
+import fundroid.ixicode.model.City;
 import fundroid.ixicode.model.Place;
 import fundroid.ixicode.model.RecomPlaces;
+import fundroid.ixicode.ui.CityActivity;
+import fundroid.ixicode.ui.CityDetailsActivity;
 import fundroid.ixicode.ui.HomeActivity;
 import fundroid.ixicode.ui.LoginActivity;
 import fundroid.ixicode.ui.ProfileActivity;
@@ -116,10 +119,24 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
         finish();
     }
 
+   public void gotoCityDetails(City city) {
+        Intent intent = new Intent(bContext, CityDetailsActivity.class);
+        intent.putExtra("city", city);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
     protected void gotoLogin() {
         Intent intent = new Intent(bContext, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    protected void gotoCity(int requestCode) {
+        Intent intent = new Intent(bContext, CityActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivityForResult(intent, requestCode);
     }
 
     public void logout() {
@@ -237,7 +254,6 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
     public void requestCompleted(int request_code, String response) {
         Slog.d("reqqquest completed");
         try {
-            JSONObject jobj = new JSONObject(response);
             onResponse(request_code, response);
         } catch (Exception e) {
             e.printStackTrace();
