@@ -44,7 +44,6 @@ public class HomeActivity extends BaseActivity {
         }
     }
 
-
     @Override
     protected void onResponse(int request_code, String response) {
         super.onResponse(request_code, response);

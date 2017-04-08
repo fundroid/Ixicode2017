@@ -23,6 +23,9 @@ public class Place implements Serializable{
     private String cityId;// "503b2a60e4b032e338f0c66f",
     private ArrayList<String> destinationCategories;
 
+    private double lat;
+    private double lng;
+
     private boolean dummy;
 
     public Place() {}
@@ -141,5 +144,21 @@ public class Place implements Serializable{
 
     public void setDummy(boolean dummy) {
         this.dummy = dummy;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 }

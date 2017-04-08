@@ -1,6 +1,8 @@
 package fundroid.ixicode.adapters;
 
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +11,22 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
+import com.google.android.gms.maps.model.LatLng;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import fundroid.ixicode.R;
 import fundroid.ixicode.model.Place;
 import fundroid.ixicode.utils.AppUtils;
+import fundroid.ixicode.utils.VolleyHelper;
+import fundroid.ixicode.utils.VolleyInterface;
 
 public class PlaceHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -57,15 +70,17 @@ public class PlaceHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 setDummyData(holder, position);
                 break;
             case TYPE_NORMAL:
-                setAssetData(holder, position);
+                setAssetData(((DetailItemViewHolder) holder), position);
                 break;
         }
     }
 
-    private void setAssetData(RecyclerView.ViewHolder holder, final int position){
-
+    private void setAssetData(DetailItemViewHolder holder, final int position){
         Place place = dataList.get(position);
-        AppUtils.setImageUrl(((DetailItemViewHolder) holder).mItemImage, place.getImage(), R.drawable.box_white_trans);
+        holder.tv_place_name.setText(place.getName());
+        AppUtils.setImageUrl(holder.mItemImage, place.getImage(), R.drawable.def_back_w);
+        holder.tv_place_loc.setText(place.getLat() + ", " + place.getLng());
+
     }
 
     private void setDummyData(RecyclerView.ViewHolder holder, int position){
@@ -79,13 +94,15 @@ public class PlaceHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     private class DetailItemViewHolder extends RecyclerView.ViewHolder {
         ImageView mItemImage;
-        TextView tv_asset_name;
+        TextView tv_place_name;
+        TextView tv_place_loc;
         RelativeLayout ll_main;
 
         private DetailItemViewHolder(View itemView) {
             super(itemView);
             mItemImage = (ImageView) itemView.findViewById(R.id.iv_asset_dp);
-            tv_asset_name = (TextView) itemView.findViewById(R.id.tv_asset_name);
+            tv_place_name = (TextView) itemView.findViewById(R.id.tv_place_name);
+            tv_place_loc = (TextView) itemView.findViewById(R.id.tv_place_loc);
             ll_main = (RelativeLayout) itemView.findViewById(R.id.ll_main);
         }
     }
@@ -104,4 +121,5 @@ public class PlaceHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 //            });
         }
     }
+
 }
