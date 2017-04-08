@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
             android:textColor="@color/white"
             android:text="" />
 
@@ -42,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="sdfdsfdf" />
+            android:text="" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
