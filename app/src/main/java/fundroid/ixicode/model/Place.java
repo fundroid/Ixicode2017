@@ -23,6 +23,13 @@ public class Place implements Serializable{
     private String cityId;// "503b2a60e4b032e338f0c66f",
     private ArrayList<String> destinationCategories;
 
+    private boolean dummy;
+
+    public Place() {}
+
+    public Place(boolean dummy) {
+        this.dummy = dummy;
+    }
 
     public String getImage() {
         return image;
@@ -126,5 +133,13 @@ public class Place implements Serializable{
 
     public void setDestinationCategories(ArrayList<String> destinationCategories) {
         this.destinationCategories = destinationCategories;
+    }
+
+    public boolean isDummy() {
+        return dummy;
+    }
+
+    public void setDummy(boolean dummy) {
+        this.dummy = dummy;
     }
 }

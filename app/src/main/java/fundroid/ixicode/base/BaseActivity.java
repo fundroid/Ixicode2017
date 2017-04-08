@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
@@ -32,12 +33,17 @@ import java.util.HashMap;
 import fundroid.ixicode.BuildConfig;
 import fundroid.ixicode.R;
 import fundroid.ixicode.model.Place;
+import fundroid.ixicode.model.RecomPlaces;
 import fundroid.ixicode.ui.HomeActivity;
 import fundroid.ixicode.ui.LoginActivity;
+import fundroid.ixicode.ui.ProfileActivity;
 import fundroid.ixicode.utils.SharedPrefrenceHelper;
 import fundroid.ixicode.utils.Slog;
 import fundroid.ixicode.utils.VolleyHelper;
 import fundroid.ixicode.utils.VolleyInterface;
+
+import static fundroid.ixicode.base.API_Requests.REQUEST_RECOM;
+import static fundroid.ixicode.base.Apis.URL_RECOMENDED;
 
 
 /**
@@ -55,6 +61,7 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
     private View parentLayout;
     private RelativeLayout screen_area;
     private ProgressDialog progressD;
+    protected RecomPlaces recom_places;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +101,14 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
         finish();
     }
 
-    public void gotoHome(ArrayList<Place> places) {
+  public void gotoProfile() {
+        Intent intent = new Intent(bContext, ProfileActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    public void gotoHome(RecomPlaces places) {
         Intent intent = new Intent(bContext, HomeActivity.class);
         intent.putExtra("recom", places);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -203,6 +217,20 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
      * get api response here
      */
     protected void onResponse(int request_code, String response) {
+        if(request_code == REQUEST_RECOM){
+            Slog.d("success ------------------");
+
+            try {
+                Gson gson = new Gson();
+                JSONObject bObj = new JSONObject(response);
+                JSONObject dataobj = bObj.getJSONObject("data");
+//                JSONArray flights = dataobj.getJSONArray("flight");
+//                places = gson.fromJson(dataobj.toString(), new TypeToken<ArrayList<Place>>() {}.getType());
+                recom_places = gson.fromJson(dataobj.toString(), RecomPlaces.class);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     } //override this in child class
 
     @Override
@@ -379,4 +407,8 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
         dialog.show();
     }
 
+    //calling the recommendations api to get recommended places.
+    protected void getRecommendations(){
+        volleyGetHit(URL_RECOMENDED, REQUEST_RECOM);
+    }
 }
