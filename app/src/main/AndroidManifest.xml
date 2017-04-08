@@ -30,7 +30,8 @@
         <activity android:name=".ui.Questions" />
         <activity android:name=".ui.MapActivity" />
         <activity android:name=".ui.CityListActivity" />
-        <activity android:name=".ui.CityDetailsActivity"></activity>
+        <activity android:name=".ui.CityDetailsActivity" />
+        <activity android:name=".ui.PointListActivity"></activity>
     </application>
 
 </manifest>

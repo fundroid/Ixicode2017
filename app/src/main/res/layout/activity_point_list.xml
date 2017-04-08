@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fundroid.ixicode.ui.CityDetailsActivity">
-
+    tools:context="fundroid.ixicode.ui.PointListActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_city_points"
+        android:id="@+id/rv_points"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_16_dp"

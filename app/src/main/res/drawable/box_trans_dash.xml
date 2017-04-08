@@ -4,7 +4,7 @@
     <corners android:radius="3dp" />
     <stroke
         android:width="2dp"
-        android:color="@color/black_50"
+        android:color="@color/colorPrimaryDark"
         android:dashGap="5dp"
         android:dashWidth="10dp" />
     <padding

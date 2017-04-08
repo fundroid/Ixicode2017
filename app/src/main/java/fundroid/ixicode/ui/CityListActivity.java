@@ -14,7 +14,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
 import fundroid.ixicode.R;
 import fundroid.ixicode.adapters.CityRecAdapter;
@@ -34,18 +33,16 @@ public class CityListActivity extends BaseActivity {
 
     VolleyInterface vi = new VolleyInterface() {
         @Override
-        public void requestStarted(int request_code) {
-        }
+        public void requestStarted(int request_code) {}
 
         @Override
         public void requestCompleted(int request_code, String response) {
             if (request_code == REQUEST_CITY_SUGGEST) {
                 Gson gson = new Gson();
                 try {
-                    ArrayList<City> cities = gson.fromJson(response, new TypeToken<ArrayList<City>>() {
-                    }.getType());
+                    ArrayList<City> cities = gson.fromJson(response, new TypeToken<ArrayList<City>>() {}.getType());
                     setCityAdapter(cities);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -78,10 +75,12 @@ public class CityListActivity extends BaseActivity {
             private final long DELAY = 500; // milliseconds
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
