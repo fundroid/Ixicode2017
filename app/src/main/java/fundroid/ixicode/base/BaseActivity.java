@@ -27,15 +27,13 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import fundroid.ixicode.BuildConfig;
 import fundroid.ixicode.R;
 import fundroid.ixicode.model.City;
-import fundroid.ixicode.model.Place;
 import fundroid.ixicode.model.RecomPlaces;
-import fundroid.ixicode.ui.CityActivity;
+import fundroid.ixicode.ui.CityListActivity;
 import fundroid.ixicode.ui.CityDetailsActivity;
 import fundroid.ixicode.ui.HomeActivity;
 import fundroid.ixicode.ui.LoginActivity;
@@ -134,7 +132,7 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
     }
 
     protected void gotoCity(int requestCode) {
-        Intent intent = new Intent(bContext, CityActivity.class);
+        Intent intent = new Intent(bContext, CityListActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, requestCode);
     }
@@ -227,7 +225,7 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
     @Override
     public void requestStarted(int request_code) {
         Slog.d("reqquest started");
-        showProgress("Loading");
+//        showProgress("Loading");
     }
 
     /**

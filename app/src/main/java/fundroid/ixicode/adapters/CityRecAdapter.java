@@ -5,18 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
 import fundroid.ixicode.R;
 import fundroid.ixicode.model.City;
-import fundroid.ixicode.model.Place;
-import fundroid.ixicode.ui.CityActivity;
-import fundroid.ixicode.utils.AppUtils;
+import fundroid.ixicode.ui.CityListActivity;
 
 public class CityRecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -49,7 +45,7 @@ public class CityRecAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         holder.ll_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((CityActivity)context).goInCity(city);
+                ((CityListActivity)context).goInCity(city);
             }
         });
     }

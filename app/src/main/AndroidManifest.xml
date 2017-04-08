@@ -29,7 +29,7 @@
         <activity android:name=".ui.ProfileActivity" />
         <activity android:name=".ui.Questions" />
         <activity android:name=".ui.MapActivity" />
-        <activity android:name=".ui.CityActivity" />
+        <activity android:name=".ui.CityListActivity" />
         <activity android:name=".ui.CityDetailsActivity"></activity>
     </application>
 

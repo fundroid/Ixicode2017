@@ -26,7 +26,7 @@ import fundroid.ixicode.utils.VolleyInterface;
 import static fundroid.ixicode.base.API_Requests.REQUEST_CITY_SUGGEST;
 import static fundroid.ixicode.base.Apis.URL_CITY_SUGGEST;
 
-public class CityActivity extends BaseActivity {
+public class CityListActivity extends BaseActivity {
 
     RecyclerView rv_cities;
     EditText et_city;

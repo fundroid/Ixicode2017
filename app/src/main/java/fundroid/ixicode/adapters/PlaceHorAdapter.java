@@ -79,7 +79,7 @@ public class PlaceHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         Place place = dataList.get(position);
         holder.tv_place_name.setText(place.getName());
         AppUtils.setImageUrl(holder.mItemImage, place.getImage(), R.drawable.def_back_w);
-        holder.tv_place_loc.setText(place.getLat() + ", " + place.getLng());
+//        holder.tv_place_loc.setText(place.getLat() + ", " + place.getLng());
 
     }
 
