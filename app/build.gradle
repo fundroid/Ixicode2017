@@ -19,6 +19,13 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+
+
 dependencies {
     ext { supportLibVersion = '25.1.1' }
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -29,7 +36,12 @@ dependencies {
     compile "com.android.support:design:${supportLibVersion}"
     compile "com.android.support:recyclerview-v7:${supportLibVersion}"
 
+
+
+
+    compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.picasso:picasso:2.5.2'
-
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.5'
 }
