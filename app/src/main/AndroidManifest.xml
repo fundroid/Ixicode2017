@@ -31,7 +31,8 @@
         <activity android:name=".ui.MapActivity" />
         <activity android:name=".ui.CityListActivity" />
         <activity android:name=".ui.CityDetailsActivity" />
-        <activity android:name=".ui.PointListActivity"></activity>
+        <activity android:name=".ui.PointListActivity" />
+        <activity android:name=".ui.WebViewActivity"></activity>
     </application>
 
 </manifest>

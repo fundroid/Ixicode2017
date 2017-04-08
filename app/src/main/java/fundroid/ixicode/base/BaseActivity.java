@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +40,7 @@ import fundroid.ixicode.ui.CityDetailsActivity;
 import fundroid.ixicode.ui.HomeActivity;
 import fundroid.ixicode.ui.LoginActivity;
 import fundroid.ixicode.ui.ProfileActivity;
+import fundroid.ixicode.ui.WebViewActivity;
 import fundroid.ixicode.utils.SharedPrefrenceHelper;
 import fundroid.ixicode.utils.Slog;
 import fundroid.ixicode.utils.VolleyHelper;
@@ -117,6 +120,20 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
         finish();
     }
 
+    public void gotoWeb(String url) {
+        Intent intent = new Intent(bContext, WebViewActivity.class);
+        intent.putExtra("url", url);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+    public void goToMap(double lat, double lng) {
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+//                Uri.parse("http://maps.google.com/maps?saddr=20.344,34.34&daddr=20.5666,45.345"));
+                Uri.parse("http://maps.google.com/maps?daddr=" + lat + "," + lng));
+        startActivity(intent);
+    }
+
    public void gotoCityDetails(City city) {
         Intent intent = new Intent(bContext, CityDetailsActivity.class);
         intent.putExtra("city", city);
@@ -157,7 +174,7 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
         setBasicToolBar(title, R.id.toolbar);
     }
 
-    private void setBasicToolBar(String title, int toolbar_id) {
+    protected void setBasicToolBar(String title, int toolbar_id) {
         try {
             toolbar = (Toolbar) findViewById(toolbar_id);
             setSupportActionBar(toolbar);
@@ -167,6 +184,8 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
             tv_title.setText("" + title);
 
             getSupportActionBar().setTitle("" + title);
+            getSupportActionBar().setTitle(Html.fromHtml("<small>" + title + "</small>"));
+
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         } catch (NullPointerException ne) {
             Slog.e("error in getsupportActionbar centerlist on create");

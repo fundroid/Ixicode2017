@@ -25,6 +25,39 @@ public class City implements Serializable{
     private double lon;// 77.23114,
     private long xid;// 1065223
 
+    private String name;
+    private String stateName;
+    private String countryName;
+    private String howToReach;
+    private String whyToVisit;
+    private String keyImageUrl;
+    private String description;
+    private String shortDescription;
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    public String getHowToReach() {
+        return howToReach;
+    }
+
+    public void setHowToReach(String howToReach) {
+        this.howToReach = howToReach;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
     public String getText() {
         return text;
     }
@@ -159,5 +192,45 @@ public class City implements Serializable{
 
     public void setXid(long xid) {
         this.xid = xid;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWhyToVisit() {
+        return whyToVisit;
+    }
+
+    public void setWhyToVisit(String whyToVisit) {
+        this.whyToVisit = whyToVisit;
+    }
+
+    public String getKeyImageUrl() {
+        return keyImageUrl;
+    }
+
+    public void setKeyImageUrl(String keyImageUrl) {
+        this.keyImageUrl = keyImageUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

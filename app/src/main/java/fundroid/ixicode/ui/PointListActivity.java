@@ -63,12 +63,12 @@ public class PointListActivity extends BaseActivity {
                 JSONObject dataobj = bObj.getJSONObject("data");
                 JSONArray pointArr = null;
                 PointContainer pc = new PointContainer();
-                pointArr = dataobj.getJSONArray(pointTypes[2]);
-                pc.setName(pointTypes[2]);
+                pointArr = dataobj.getJSONArray(pointTypes[typePos]);
+                pc.setName(pointTypes[typePos]);
                 if (pointArr != null) {
                     ArrayList<Point> pointList = gson.fromJson(pointArr.toString(), new TypeToken<ArrayList<Point>>() {
                     }.getType());
-                    if (points == null || points.size() < 1) {
+                    if (pointList == null || pointList.size() < 1) {
                         Slog.d("No More Points Available");
                         adapter.setMoreDataAvailable(false);
                     } else {
@@ -149,21 +149,15 @@ public class PointListActivity extends BaseActivity {
 
     private void getCitySuggestions() {
 
-        if(points!=null){
+        if(points!=null){}
 
-        }
         int skip = points.size();
-        String url = URL_CITY_POINTS.replace("<CITY>", cid)
+        String url = URL_CITY_POINTS
+                .replace("<CITY>", cid)
                 .replace("<TYPE>", pointTypes[typePos])
                 .replace("<SKIP>", ""+ skip)
                 .replace("<LIMIT>", "20")
                 .replace(" ", "%20");
         VolleyHelper.getRequestVolley(vi, url, REQUEST_CITY_POINT);
     }
-
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-//        void onListFragmentInteraction(DummyItem item);
-    }
-
 }
