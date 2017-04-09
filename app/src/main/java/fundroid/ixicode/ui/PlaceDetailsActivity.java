@@ -80,7 +80,7 @@ public class PlaceDetailsActivity extends BaseActivity {
         setBasicToolBar(place.getName(), R.id.toolbar);
         header_text1.setText(place.getName());
         header_text2.setText(place.getStateName() + ", " + place.getCountryName());
-        header_text3.setText("Price >" + Apis.RSymbol + place.getData());
+        header_text3.setText("Price >" + Apis.RSymbol + place.getData().replace("$#8377", ""));
         AppUtils.setImageUrl(header_vi, place.getImage(), R.drawable.def_back_w);
 
         tv_how.setText(place.getCityName());

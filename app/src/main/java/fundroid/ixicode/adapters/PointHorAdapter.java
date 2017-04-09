@@ -31,8 +31,8 @@ public class PointHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.dataList = dataList;
         this.typePos = pos;
 
-        Point point = new Point(true);
-        dataList.add(point);
+//        Point point = new Point(true);
+//        dataList.add(point);
     }
 
     @Override

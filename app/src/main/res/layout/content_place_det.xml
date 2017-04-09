@@ -97,8 +97,9 @@
             <fundroid.ixicode.views.pageindicator.MyTextView
                 android:id="@+id/tv_how"
                 style="@style/text.subheading"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:textColor="@color/black" />
 
