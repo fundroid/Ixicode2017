@@ -15,6 +15,7 @@ import fundroid.ixicode.base.Apis;
 import fundroid.ixicode.base.BaseActivity;
 import fundroid.ixicode.model.Place;
 import fundroid.ixicode.utils.AppUtils;
+import fundroid.ixicode.utils.Slog;
 
 import static fundroid.ixicode.base.Apis.URL_FOR_MAP;
 
@@ -70,6 +71,10 @@ public class PlaceDetailsActivity extends BaseActivity {
         rv_place_cats.setAdapter(new PlaceCatAdapter(bContext, place.getDestinationCategories()));
     }
 
+    public void clickCity(View v){
+        gotoCityDetails(place.getCityId());
+    }
+
     private void setPointData() {
         ll_det_part.setVisibility(View.VISIBLE);
         setBasicToolBar(place.getName(), R.id.toolbar);
@@ -85,8 +90,10 @@ public class PlaceDetailsActivity extends BaseActivity {
                 gotoCityDetails(place.getCityId());
             }
         });
-        tv_why.setText(place.getStateName() + "    Explore place >>");
+        tv_why.setText(place.getStateName());
 
-        AppUtils.setImageUrl(iv_mapv, URL_FOR_MAP.replace("<LAT>",""+ place.getLat()).replace("<LNG>","" + place.getLng()), R.drawable.def_back_w);
+        String murl = URL_FOR_MAP.replace("<LAT>",""+ place.getLat()).replace("<LNG>","" + place.getLng());
+        Slog.d("murl ; " + murl);
+        AppUtils.setImageUrl(iv_mapv, murl, R.drawable.def_back_w);
     }
 }

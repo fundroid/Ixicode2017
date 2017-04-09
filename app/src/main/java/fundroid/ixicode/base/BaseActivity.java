@@ -204,11 +204,11 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
             tv_title.setText("" + title);
 
             getSupportActionBar().setTitle("" + title);
-            getSupportActionBar().setTitle(Html.fromHtml("<small>" + title + "</small>"));
+//            getSupportActionBar().setTitle(Html.fromHtml("<small>" + title + "</small>"));
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         } catch (NullPointerException ne) {
-            Slog.e("error in getsupportActionbar centerlist on create");
+            ne.printStackTrace();
         }
     }
 
@@ -292,6 +292,7 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
     @Override
     public void requestCompleted(int request_code, String response) {
         Slog.d("reqqquest completed");
+        Slog.d("response : " + response);
         try {
             onResponse(request_code, response);
         } catch (Exception e) {

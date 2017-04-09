@@ -88,13 +88,28 @@
             android:gravity="center_vertical"
             android:text="Short Description" />
 
-        <fundroid.ixicode.views.pageindicator.MyTextView
-            android:id="@+id/tv_how"
-            style="@style/text.subheading"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textColor="@color/black" />
+            android:orientation="horizontal">
+
+
+            <fundroid.ixicode.views.pageindicator.MyTextView
+                android:id="@+id/tv_how"
+                style="@style/text.subheading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="@color/black" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_round_primary"
+                android:onClick="clickCity"
+                android:foreground="?android:selectableItemBackground"
+                android:text="Explore" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -108,8 +123,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16_dp"
             android:gravity="center_vertical"
-            android:visibility="gone"
-            android:text="Description" />
+            android:text="Description"
+            android:visibility="gone" />
 
         <fundroid.ixicode.views.pageindicator.MyTextView
             android:id="@+id/tv_desc"
@@ -118,14 +133,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:maxLines="3"
-            android:visibility="gone"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="@dimen/margin_5_dp"
-            android:background="@color/black_50" />
+            android:textColor="@color/black"
+            android:visibility="gone" />
 
         <fundroid.ixicode.views.pageindicator.MyTextView
             style="@style/text.heading"
@@ -133,14 +142,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16_dp"
             android:gravity="center_vertical"
-            android:text="Location" />
+            android:text="Location"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_mapv"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>
