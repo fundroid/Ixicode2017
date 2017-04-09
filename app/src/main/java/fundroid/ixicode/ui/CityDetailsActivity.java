@@ -143,6 +143,7 @@ public class CityDetailsActivity extends BaseActivity {
                 city.setLat(JsonUtils.getFloatFromJSON(dataObj, "latitude"));
                 city.setLon(JsonUtils.getFloatFromJSON(dataObj, "longitude"));
                 city.setCid(JsonUtils.getStringFromJSON(dataObj, "id"));
+                city.setUrl(JsonUtils.getStringFromJSON(dataObj, "url"));
 
             }catch (JSONException e){
                 e.printStackTrace();
@@ -228,7 +229,7 @@ public class CityDetailsActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Slog.d("url : " + city.getUrl());
-                gotoWeb(Apis.BASE_URL + city.getUrl());
+                gotoWeb(city.getUrl());
             }
         });
     }

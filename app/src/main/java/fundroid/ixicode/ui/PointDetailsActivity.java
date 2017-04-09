@@ -25,6 +25,7 @@ public class PointDetailsActivity extends BaseActivity {
     private ImageView header_vi;
     private LinearLayout ll_det_part;
     private LinearLayout ll_mapview;
+    private LinearLayout ll_cats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,9 @@ public class PointDetailsActivity extends BaseActivity {
         tv_why  = (TextView) findViewById(R.id.tv_why );
         tv_how  = (TextView) findViewById(R.id.tv_how );
         tv_desc = (TextView) findViewById(R.id.tv_desc);
+
+        ll_cats= (LinearLayout) findViewById(R.id.ll_cats);
+        ll_cats.setVisibility(View.GONE);
 
 //        ll_desc_more= (LinearLayout) findViewById(R.id.ll_desc_more);
         ll_det_part= (LinearLayout) findViewById(R.id.ll_det_part);

@@ -30,7 +30,7 @@ public class PlaceDetailsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_point_details);
+        setContentView(R.layout.activity_place_details);
         place = (Place) getIntent().getSerializableExtra("place");
 
         if (place == null) {
@@ -81,7 +81,7 @@ public class PlaceDetailsActivity extends BaseActivity {
                 gotoCityDetails(place.getCityId());
             }
         });
-        tv_why.setText(place.getStateName());
-        tv_desc.setText(Html.fromHtml(place.getDestinationCategories().toString()));
+        tv_why.setText(place.getStateName() + "    Explore place >>");
+//        tv_desc.setText(Html.fromHtml(place.getData()));
     }
 }

@@ -342,7 +342,7 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
 
     protected void setscreenLayout(int layout_id) {
 
-        View llSubLayout = new View(this);
+        View llSubLayout ;
         if (inflater == null) {
             inflater = getLayoutInflater();
         }

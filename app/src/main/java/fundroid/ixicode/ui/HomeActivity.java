@@ -23,7 +23,7 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setscreenLayout(R.layout.activity_home_new);
 
-        setBasicToolBar("IxiCode Travel");
+//        setBasicToolBar("IxiCode Travel");
         recom_places = (RecomPlaces) getIntent().getSerializableExtra("recom");
         initViews();
 
