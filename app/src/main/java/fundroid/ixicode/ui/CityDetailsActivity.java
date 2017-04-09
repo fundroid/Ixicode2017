@@ -196,7 +196,9 @@ public class CityDetailsActivity extends BaseActivity {
         header_text2.setText(city.getStateName() +", " + city.getCountryName());
         header_text3.setText(city.getShortDescription());
         AppUtils.setImageUrl(header_vi, city.getKeyImageUrl(), R.drawable.sand);
-        AppUtils.setImageUrl(iv_map, URL_FOR_MAP.replace("<LAT>",""+ city.getLat()).replace("<LNG>","" + city.getLon()), R.drawable.def_back_w);
+        String murl = URL_FOR_MAP.replace("<LAT>",""+ city.getLat()).replace("<LNG>","" + city.getLon());
+        Slog.d("murl ; " + URL_FOR_MAP.replace("<LAT>",""+ city.getLat()).replace("<LNG>","" + city.getLon()));
+        AppUtils.setImageUrl(iv_map, murl, R.drawable.def_back_w);
 
         tv_how.setText(city.getHowToReach());
         tv_why.setText(city.getWhyToVisit());

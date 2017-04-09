@@ -15,5 +15,5 @@ public class Apis {
     public static final String URL_CITY_POINTS = BASE_URL + "/api/v3/namedentities/city/<CITY>/categories?apiKey=ixicode!2$&type=<TYPE>&skip=<SKIP>&limit=<LIMIT>";
     public static final String URL_ENT_DETAIL = BASE_URL + "/api/v3/namedentities/id/<ENT>?apiKey=ixicode!2$";
 
-    public static final String URL_FOR_MAP = "https://maps.googleapis.com/maps/api/staticmap?center=<LAT>,<LNG>&zoom=3&size=400x300&key=AIzaSyAl1htxIonUsb4vRjQgljDf0dWU03g3oCY";
+    public static final String URL_FOR_MAP = "https://maps.googleapis.com/maps/api/staticmap?center=<LAT>,<LNG>&zoom=7&size=400x300&key=AIzaSyAl1htxIonUsb4vRjQgljDf0dWU03g3oCY";
 }

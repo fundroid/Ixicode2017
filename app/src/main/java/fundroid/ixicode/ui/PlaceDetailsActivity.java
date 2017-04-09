@@ -16,12 +16,15 @@ import fundroid.ixicode.base.BaseActivity;
 import fundroid.ixicode.model.Place;
 import fundroid.ixicode.utils.AppUtils;
 
+import static fundroid.ixicode.base.Apis.URL_FOR_MAP;
+
 public class PlaceDetailsActivity extends BaseActivity {
 
     private Place place;
     private TextView header_text1, header_text2, header_text3, tv_loc, tv_dir, tv_web;
     private TextView tv_why, tv_how, tv_desc, tv_desc_more;
     private ImageView header_vi;
+    private ImageView iv_mapv;
     private LinearLayout ll_det_part;
     private LinearLayout ll_mapview;
 
@@ -44,6 +47,7 @@ public class PlaceDetailsActivity extends BaseActivity {
 
     private void initViews() {
         header_vi = (ImageView) findViewById(R.id.header_vi);
+        iv_mapv = (ImageView) findViewById(R.id.iv_mapv);
         header_text1 = (TextView) findViewById(R.id.header_text1);
         header_text2 = (TextView) findViewById(R.id.header_text2);
         header_text3 = (TextView) findViewById(R.id.header_text3);
@@ -82,6 +86,7 @@ public class PlaceDetailsActivity extends BaseActivity {
             }
         });
         tv_why.setText(place.getStateName() + "    Explore place >>");
-//        tv_desc.setText(Html.fromHtml(place.getData()));
+
+        AppUtils.setImageUrl(iv_mapv, URL_FOR_MAP.replace("<LAT>",""+ place.getLat()).replace("<LNG>","" + place.getLng()), R.drawable.def_back_w);
     }
 }
