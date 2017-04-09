@@ -231,7 +231,7 @@ public class CityDetailsActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Slog.d("url : " + city.getUrl());
-                gotoWeb(city.getUrl());
+                gotoWeb(Apis.BASE_URL + city.getUrl());
             }
         });
     }
