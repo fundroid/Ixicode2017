@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_resto_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_point_details">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_facility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:contentPadding="0dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_facility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:padding="4dp" />
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/ll_det_part"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <fundroid.ixicode.views.pageindicator.MyTextView
+            style="@style/text.heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Address" />
+
+        <fundroid.ixicode.views.pageindicator.MyTextView
+            android:id="@+id/tv_why"
+            style="@style/text.subheading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+
+        <fundroid.ixicode.views.pageindicator.MyTextView
+            style="@style/text.heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16_dp"
+            android:gravity="center_vertical"
+            android:text="Short Description" />
+
+        <fundroid.ixicode.views.pageindicator.MyTextView
+            android:id="@+id/tv_how"
+            style="@style/text.subheading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+
+        <fundroid.ixicode.views.pageindicator.MyTextView
+            style="@style/text.heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16_dp"
+            android:gravity="center_vertical"
+            android:text="Description" />
+
+        <fundroid.ixicode.views.pageindicator.MyTextView
+            android:id="@+id/tv_desc"
+            style="@style/text.subheading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:maxLines="3"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_place_cats"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animationCache="false"
+        android:drawingCacheQuality="low" />
+
+</LinearLayout>

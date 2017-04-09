@@ -13,17 +13,18 @@ import android.widget.TextView;
 import java.util.List;
 
 import fundroid.ixicode.R;
+import fundroid.ixicode.base.BaseActivity;
 import fundroid.ixicode.model.Point;
 import fundroid.ixicode.ui.CityDetailsActivity;
 import fundroid.ixicode.utils.AppUtils;
 
 public class PointHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private Context context;
-    private List<Point> dataList;
     private final int TYPE_NORMAL = 1;
     private final int TYPE_DUMMY = 2;
     int typePos = 0;
+    private Context context;
+    private List<Point> dataList;
 
     public PointHorAdapter(Context context, List<Point> dataList, int pos) {
         this.context = context;
@@ -36,10 +37,10 @@ public class PointHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(viewType == TYPE_DUMMY){
+        if (viewType == TYPE_DUMMY) {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_point_hor_dummy, parent, false);
             return new DummyItemViewHolder(itemView);
-        }else{
+        } else {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_point_hor, parent, false);
             return new DetailItemViewHolder(itemView);
         }
@@ -47,9 +48,9 @@ public class PointHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        if(dataList.get(position).isDummy()){
+        if (dataList.get(position).isDummy()) {
             return TYPE_DUMMY;
-        }else{
+        } else {
             return TYPE_NORMAL;
         }
     }
@@ -66,15 +67,21 @@ public class PointHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    private void setPointData(DetailItemViewHolder holder, final int position){
-        Point point = dataList.get(position);
+    private void setPointData(DetailItemViewHolder holder, final int position) {
+        final Point point = dataList.get(position);
         holder.tv_place_name.setText(point.getName());
         AppUtils.setImageUrl(holder.mItemImage, point.getKeyImageUrl(), R.drawable.def_back_w);
 //        holder.tv_place_loc.setText(place.getLat() + ", " + place.getLng());
+        holder.ll_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((BaseActivity) context).showpointDetails(point);
+            }
+        });
 
     }
 
-    private void setDummyData(RecyclerView.ViewHolder holder, int position){
+    private void setDummyData(RecyclerView.ViewHolder holder, int position) {
         // no specific action
     }
 
@@ -107,7 +114,7 @@ public class PointHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             ll_main.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ((CityDetailsActivity)context).showAllPoints(typePos);
+                    ((CityDetailsActivity) context).showAllPoints(typePos);
                 }
             });
         }

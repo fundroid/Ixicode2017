@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    app:cardBackgroundColor="@color/colorPrimary"
-    app:cardCornerRadius="@dimen/default_card_radius"
-    app:cardElevation="@dimen/default_elevation"
-    app:contentPadding="@dimen/margin_12_dp"
-    app:cardUseCompatPadding="false">
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/colorPrimary">
 
     <LinearLayout
         android:id="@+id/ll_main"
@@ -17,6 +13,7 @@
         android:background="?android:selectableItemBackground"
         android:clickable="true"
         android:gravity="center"
+        android:padding="@dimen/size_18_dp"
         android:orientation="vertical">
 
         <fundroid.ixicode.views.pageindicator.MyTextView
@@ -26,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:gravity="center_vertical"
-            android:textColor="@color/white"
+            android:textColor="@color/white_dd"
             app:fontName="vanila.ttf" />
 
         <fundroid.ixicode.views.pageindicator.MyTextView
@@ -34,8 +31,13 @@
             style="@style/text.subheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/white_cc"
             app:fontName="vanila.ttf" />
 
     </LinearLayout>
-</android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_50" />
+</LinearLayout>

@@ -48,7 +48,7 @@
         android:fitsSystemWindows="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <include layout="@layout/content_city_det" />
+        <include layout="@layout/content_point_det" />
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
@@ -93,10 +93,10 @@
                     android:id="@+id/tv_full_desc"
                     style="@style/text.subheading"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
                     android:minHeight="200dp"
-                    android:minLines="5" />
+                    android:layout_height="wrap_content"
+                    android:minLines="5"
+                    android:background="@color/white" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
@@ -107,7 +107,7 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <View
             android:layout_width="match_parent"
@@ -135,8 +135,7 @@
             <ImageView
                 android:id="@+id/iv_map"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@color/white" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -17,13 +17,13 @@ import static fundroid.ixicode.base.API_Requests.REQUEST_RECOM;
 public class HomeActivity extends BaseActivity {
 
     RecyclerView rv_recom;
-//    EditText et_from, et_to;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setscreenLayout(R.layout.activity_home_new);
 
+        setBasicToolBar("IxiCode Travel");
         recom_places = (RecomPlaces) getIntent().getSerializableExtra("recom");
         initViews();
 
@@ -32,26 +32,10 @@ public class HomeActivity extends BaseActivity {
 
     private void initViews() {
 
-//        et_from = (EditText)findViewById(R.id.et_from);
-//        et_to = (EditText)findViewById(R.id.et_to);
-
-//        et_from.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                gotoCity(1);
-//            }
-//        });
-//        et_to.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                gotoCity(2);
-//            }
-//        });
         rv_recom = (RecyclerView) findViewById(R.id.rv_recom);
         rv_recom.setHasFixedSize(false);
         rv_recom.setLayoutManager(new LinearLayoutManager(bContext, LinearLayoutManager.HORIZONTAL, false));// Setting the layout Manager
-//        rv_recom.setLayoutManager(new LinearLayoutManager(this));
-//        rv_recom.setLayoutManager(new GridLayoutManager(this, 2));
+
     }
 
     public void clickCityTo(View v){

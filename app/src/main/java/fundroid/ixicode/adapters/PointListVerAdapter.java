@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import fundroid.ixicode.R;
+import fundroid.ixicode.base.BaseActivity;
 import fundroid.ixicode.model.Point;
 import fundroid.ixicode.utils.AppUtils;
 
@@ -56,11 +57,16 @@ public class PointListVerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     private void setPointData(DataViewHoler holder, final int position){
-        Point point = dataList.get(position);
+        final Point point = dataList.get(position);
         holder.tv_place_name.setText(point.getName());
         AppUtils.setImageUrl(holder.mItemImage, point.getKeyImageUrl(), R.drawable.def_back_w);
 //        holder.tv_place_loc.setText(place.getLat() + ", " + place.getLng());
-
+        holder.ll_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((BaseActivity) context).showpointDetails(point);
+            }
+        });
     }
 
 

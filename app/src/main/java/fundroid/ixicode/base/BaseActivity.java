@@ -34,13 +34,16 @@ import java.util.HashMap;
 import fundroid.ixicode.BuildConfig;
 import fundroid.ixicode.R;
 import fundroid.ixicode.model.City;
+import fundroid.ixicode.model.Point;
 import fundroid.ixicode.model.RecomPlaces;
 import fundroid.ixicode.ui.CityListActivity;
 import fundroid.ixicode.ui.CityDetailsActivity;
 import fundroid.ixicode.ui.HomeActivity;
 import fundroid.ixicode.ui.LoginActivity;
+import fundroid.ixicode.ui.PointDetailsActivity;
 import fundroid.ixicode.ui.ProfileActivity;
 import fundroid.ixicode.ui.WebViewActivity;
+import fundroid.ixicode.utils.NetworkUtil;
 import fundroid.ixicode.utils.SharedPrefrenceHelper;
 import fundroid.ixicode.utils.Slog;
 import fundroid.ixicode.utils.VolleyHelper;
@@ -56,7 +59,6 @@ import static fundroid.ixicode.base.Apis.URL_RECOMENDED;
 
 public class BaseActivity extends AppCompatActivity implements VolleyInterface {
 
-    public String RSymbol = "₹";
     protected Context bContext;
     protected Toolbar toolbar;
 
@@ -125,7 +127,6 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
         intent.putExtra("url", url);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        finish();
     }
     public void goToMap(double lat, double lng) {
         Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
@@ -136,10 +137,16 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
 
    public void gotoCityDetails(City city) {
         Intent intent = new Intent(bContext, CityDetailsActivity.class);
-        intent.putExtra("city", city);
+        intent.putExtra("cid", city.get_id());
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        finish();
+    }
+
+   public void gotoCityDetails(String cid) {
+        Intent intent = new Intent(bContext, CityDetailsActivity.class);
+        intent.putExtra("cid", cid);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     protected void gotoLogin() {
@@ -154,6 +161,12 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
         startActivityForResult(intent, requestCode);
     }
 
+
+    public void showpointDetails(Point point){
+        Intent intent = new Intent(bContext, PointDetailsActivity.class);
+        intent.putExtra("point", point);
+        startActivity(intent);
+    }
     public void logout() {
         clearUserData();
     }
@@ -224,7 +237,9 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
     }
 
     public void volleyGetHit(String url, int rcode) {
-        VolleyHelper.getRequestVolley(this, url, rcode);
+        if (NetworkUtil.isNetworkAvailable(bContext)){
+            VolleyHelper.getRequestVolley(this, url, rcode);
+        }
     }
 
     public void volleyPostHit(String url, HashMap hm, int rcode) {

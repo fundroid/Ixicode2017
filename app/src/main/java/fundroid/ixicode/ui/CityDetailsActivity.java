@@ -54,17 +54,20 @@ public class CityDetailsActivity extends BaseActivity {
     private LinearLayout ll_desc_more;
     private LinearLayout ll_det_part;
     private LinearLayout ll_mapview;
+    private String cid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_det);
 
-        city = (City) getIntent().getSerializableExtra("city");
+        cid = getIntent().getStringExtra("cid");
 
-        if (city == null) {
+        if (cid == null) {
             finish();
         }
+
+        city = new City();
 
         getCityDetails();
 
@@ -105,12 +108,12 @@ public class CityDetailsActivity extends BaseActivity {
     }
 
     private void getCityDetails(){
-        String url = URL_ENT_DETAIL.replace("<ENT>", city.get_id());
+        String url = URL_ENT_DETAIL.replace("<ENT>", cid);
         volleyGetHit(url, REQUEST_ENT_DETAIL);
     }
 
     private void getCitySuggestions(int pos) {
-        String url = URL_CITY_POINTS.replace("<CITY>", city.get_id())
+        String url = URL_CITY_POINTS.replace("<CITY>", cid)
                 .replace("<TYPE>", pointTypes[pos])
                 .replace("<SKIP>", "0")
                 .replace("<LIMIT>", "10")
@@ -124,10 +127,11 @@ public class CityDetailsActivity extends BaseActivity {
         if(request_code == REQUEST_ENT_DETAIL){
 
             try{
-                JSONObject jobj = new JSONObject(response.replace("\n", "").replace("\r", "").replace("</div>", "").replace("<div>", "").replace("<br />", "").replace("        ", ""));
+                JSONObject jobj = new JSONObject(response.replace("</div>", "").replace("<div>", "").replace("<br />", "").replace("   ", ""));
                 JSONObject dataObj  = JsonUtils.getJsonObjFromJSON(jobj, "data");
 
                 city.setName(JsonUtils.getStringFromJSON(dataObj, "name"));
+                city.setAddress(JsonUtils.getStringFromJSON(dataObj, "address"));
                 city.setStateName(JsonUtils.getStringFromJSON(dataObj, "stateName"));
                 city.setCountryName(JsonUtils.getStringFromJSON(dataObj, "countryName"));
                 city.setKeyImageUrl(JsonUtils.getStringFromJSON(dataObj, "keyImageUrl"));
@@ -135,6 +139,10 @@ public class CityDetailsActivity extends BaseActivity {
                 city.setHowToReach(JsonUtils.getStringFromJSON(dataObj, "howToReach"));
                 city.setDescription(JsonUtils.getStringFromJSON(dataObj, "description"));
                 city.setShortDescription(JsonUtils.getStringFromJSON(dataObj, "shortDescription"));
+                city.setXid(JsonUtils.getIntFromJSON(dataObj, "xid"));
+                city.setLat(JsonUtils.getFloatFromJSON(dataObj, "latitude"));
+                city.setLon(JsonUtils.getFloatFromJSON(dataObj, "longitude"));
+                city.setCid(JsonUtils.getStringFromJSON(dataObj, "id"));
 
             }catch (JSONException e){
                 e.printStackTrace();
@@ -172,7 +180,7 @@ public class CityDetailsActivity extends BaseActivity {
                 cityPoints.add(pc);
                 cpva.notifyDataSetChanged();
             }else{
-                Slog.e("points is null line 103 cityDetailsActivity");
+                Slog.e("points is null line 176 cityDetailsActivity");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -192,8 +200,8 @@ public class CityDetailsActivity extends BaseActivity {
         tv_how.setText(city.getHowToReach());
         tv_why.setText(city.getWhyToVisit());
         Slog.d("desc:   " + city.getDescription());
-        tv_desc.setText(Html.fromHtml(city.getDescription()));
-        tv_full_desc.setText(Html.fromHtml(city.getDescription()));
+        tv_desc.setText(Html.fromHtml(city.getDescription().replace("\n", "").replace("\r", "")));
+        tv_full_desc.setText(Html.fromHtml(city.getDescription().replace("\n", "").replace("\r", "")));
 
         tv_desc_more.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -219,7 +227,8 @@ public class CityDetailsActivity extends BaseActivity {
         tv_web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gotoWeb(Apis.BASE_URL + city.getUrl().replace("/",""));
+                Slog.d("url : " + city.getUrl());
+                gotoWeb(Apis.BASE_URL + city.getUrl());
             }
         });
     }

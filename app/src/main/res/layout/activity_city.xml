@@ -15,14 +15,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_12_dp"
-            android:src="@android:drawable/ic_menu_close_clear_cancel" />
+            android:src="@drawable/ic_close" />
 
         <EditText
             android:id="@+id/et_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16_dp"
-            android:hint="Where to?"
+            android:hint="Where do want to go?"
             android:paddingLeft="@dimen/size_18_dp"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/white_50"

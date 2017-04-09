@@ -79,13 +79,12 @@ public class CityListActivity extends BaseActivity {
             }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 query = s.toString();
-                if (query.length() > 3) {
+                if (query.length() > 2) {
                     handler.removeCallbacks(workRunnable);
                     handler.postDelayed(workRunnable, DELAY /*delay*/);
                 }
