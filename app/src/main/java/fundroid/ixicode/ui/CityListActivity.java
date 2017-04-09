@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
 import com.android.volley.VolleyError;
@@ -60,6 +61,8 @@ public class CityListActivity extends BaseActivity {
         }
     };
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,5 +107,9 @@ public class CityListActivity extends BaseActivity {
 
     public void goInCity(City city) {
         gotoCityDetails(city);
+    }
+
+    public void clickFinish(View v){
+        finish();
     }
 }
