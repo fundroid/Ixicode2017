@@ -35,6 +35,8 @@
         android:id="@+id/ll_det_part"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/margin_12_dp"
+        android:background="@color/white"
         android:orientation="vertical"
         android:visibility="visible">
 
