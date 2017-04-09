@@ -53,6 +53,12 @@
             android:gravity="center_vertical"
             android:textColor="@color/black" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_5_dp"
+            android:background="@color/black_50" />
+
         <fundroid.ixicode.views.pageindicator.MyTextView
             style="@style/text.heading"
             android:layout_width="match_parent"
@@ -68,6 +74,12 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_5_dp"
+            android:background="@color/black_50" />
 
         <fundroid.ixicode.views.pageindicator.MyTextView
             style="@style/text.heading"
@@ -86,6 +98,11 @@
             android:maxLines="3"
             android:textColor="@color/black" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_5_dp"
+            android:background="@color/black_50" />
     </LinearLayout>
 
 </LinearLayout>

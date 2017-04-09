@@ -31,6 +31,7 @@ public class PointDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_details);
         point = (Point) getIntent().getSerializableExtra("point");
+        setBasicToolBar("" + point.getName(), R.id.toolbar);
 
         if (point == null) {
             finish();

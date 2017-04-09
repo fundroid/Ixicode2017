@@ -54,6 +54,11 @@
             android:text="Why To Visit"
             android:textColor="@color/black" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_5_dp"
+            android:background="@color/black_50"/>
         <fundroid.ixicode.views.pageindicator.MyTextView
             style="@style/text.heading"
             android:layout_width="match_parent"
@@ -71,7 +76,11 @@
             android:text="Why To Visit"
             android:textColor="@color/black" />
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_5_dp"
+            android:background="@color/black_50"/>
         <fundroid.ixicode.views.pageindicator.MyTextView
             style="@style/text.heading"
             android:layout_width="wrap_content"
@@ -84,10 +93,9 @@
         <fundroid.ixicode.views.pageindicator.MyTextView
             android:id="@+id/tv_desc"
             style="@style/text.subheading"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:maxLines="3"
             android:textColor="@color/black" />
 
         <fundroid.ixicode.views.pageindicator.MyTextView
@@ -99,8 +107,14 @@
             android:gravity="center_vertical"
             android:padding="@dimen/margin_12_dp"
             android:text="show All"
+            android:visibility="gone"
             android:textAllCaps="true" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_5_dp"
+            android:background="@color/black_50"/>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

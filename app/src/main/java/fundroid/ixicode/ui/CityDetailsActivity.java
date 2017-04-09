@@ -248,7 +248,7 @@ public class CityDetailsActivity extends BaseActivity {
 
     public void showAllPoints(int pos){
         Intent intent = new Intent(bContext, PointListActivity.class);
-        intent.putExtra("_id", city.get_id());
+        intent.putExtra("cid", cid);
         intent.putExtra("typePos", pos);
         startActivity(intent);
     }

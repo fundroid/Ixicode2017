@@ -11,9 +11,16 @@
         android:id="@+id/header_vi"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha=".77"
         android:scaleType="centerCrop"
         android:src="@drawable/sand"
+        android:transitionName="resta_img" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".39"
+        android:scaleType="centerCrop"
+        android:src="@color/black"
         android:transitionName="resta_img" />
 
     <RelativeLayout

@@ -34,12 +34,14 @@ import java.util.HashMap;
 import fundroid.ixicode.BuildConfig;
 import fundroid.ixicode.R;
 import fundroid.ixicode.model.City;
+import fundroid.ixicode.model.Place;
 import fundroid.ixicode.model.Point;
 import fundroid.ixicode.model.RecomPlaces;
 import fundroid.ixicode.ui.CityListActivity;
 import fundroid.ixicode.ui.CityDetailsActivity;
 import fundroid.ixicode.ui.HomeActivity;
 import fundroid.ixicode.ui.LoginActivity;
+import fundroid.ixicode.ui.PlaceDetailsActivity;
 import fundroid.ixicode.ui.PointDetailsActivity;
 import fundroid.ixicode.ui.ProfileActivity;
 import fundroid.ixicode.ui.WebViewActivity;
@@ -162,6 +164,11 @@ public class BaseActivity extends AppCompatActivity implements VolleyInterface {
     }
 
 
+    public void gotoPlaceDetalis(Place place){
+        Intent intent = new Intent(bContext, PlaceDetailsActivity.class);
+        intent.putExtra("place", place);
+        startActivity(intent);
+    }
     public void showpointDetails(Point point){
         Intent intent = new Intent(bContext, PointDetailsActivity.class);
         intent.putExtra("point", point);

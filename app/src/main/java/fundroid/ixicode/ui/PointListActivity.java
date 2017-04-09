@@ -102,7 +102,7 @@ public class PointListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_list);
 
-        cid = getIntent().getStringExtra("_id");
+        cid = getIntent().getStringExtra("cid");
         typePos = getIntent().getIntExtra("typePos", 0);
 
         rv_points = (RecyclerView) findViewById(R.id.rv_points);

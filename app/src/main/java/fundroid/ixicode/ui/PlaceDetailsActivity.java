@@ -37,6 +37,7 @@ public class PlaceDetailsActivity extends BaseActivity {
             finish();
         }
 
+        setBasicToolBar(place.getName(), R.id.toolbar);
         initViews();
         setPointData();
     }

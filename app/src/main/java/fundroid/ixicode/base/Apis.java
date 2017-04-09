@@ -8,7 +8,7 @@ public class Apis {
 
     public static String RSymbol = "₹";
 
-    public static String[] pointTypes = {"Places To Visit", "Hotel", "Accomodations", "Things To Do"};
+    public static String[] pointTypes = {"Places To Visit", "Hotel", "Accomodations"};
     public static final String BASE_URL = "http://build2.ixigo.com";
     public static final String URL_RECOMENDED = BASE_URL + "/api/v2/widgets/brand/inspire?product=1&apiKey=ixicode!2$";
     public static final String URL_CITY_SUGGEST = BASE_URL + "/action/content/zeus/autocomplete?searchFor=tpAutoComplete&neCategories=City&query=<Q>";

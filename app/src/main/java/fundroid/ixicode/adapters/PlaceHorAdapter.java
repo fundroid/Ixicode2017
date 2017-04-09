@@ -13,6 +13,7 @@ import java.util.List;
 
 import fundroid.ixicode.R;
 import fundroid.ixicode.base.Apis;
+import fundroid.ixicode.base.BaseActivity;
 import fundroid.ixicode.model.Place;
 import fundroid.ixicode.utils.AppUtils;
 
@@ -64,11 +65,17 @@ public class PlaceHorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     private void setAssetData(DetailItemViewHolder holder, final int position) {
-        Place place = dataList.get(position);
+        final Place place = dataList.get(position);
         holder.tv_place_name.setText(place.getName());
         AppUtils.setImageUrl(holder.mItemImage, place.getImage(), R.drawable.def_back_w);
         holder.tv_price.setText(place.getData().replace("&#8377;", Apis.RSymbol));
         holder.tv_text.setText(place.getText());
+        holder.ll_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((BaseActivity)context).gotoPlaceDetalis(place);
+            }
+        });
 
     }
 
